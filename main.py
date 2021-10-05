@@ -4,7 +4,7 @@ from typing import Union
 def findprimes(n):
     '''
     Determina numerele prime pana la n.
-    :param n: Numar natural.
+    :param n: Parametru de intrare, numar natural, reprezinta limita superioara a listei.
     :return: Returneaza lista cu numerele prime pana la n.
     '''
     primes = list(range(2, n + 1))
