@@ -51,7 +51,6 @@ def test_get_goldbach():
     assert get_goldbach(26) == (3, 23)
     assert get_goldbach(28) == (5, 23)
     assert get_goldbach(30) == (7, 23)
-    assert get_goldbach(32) == (3, 29)
 
 
 test_get_goldbach()
