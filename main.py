@@ -87,10 +87,51 @@ def test_get_newton_sqrt():
 
 test_get_newton_sqrt()
 
+def is_prime(n):
+    '''
+    Determina daca un numar dat este prim.
+    :param n: Numar natural.
+    :return: True daca acesta este numar prim, False in caz contrar.
+    '''
+    if n > 1:
+        for i in range(2, n):
+            if n % i == 0:
+                return False
+    else:
+        return False
+    return True
+
+
+def get_largest_prime_below(n):
+    '''
+    Ex. 1) Determina ultimul numar prim mai mic decat un numar dat.
+    :param n: Numar natural.
+    :return: Returneaza numarul.
+    '''
+    for i in reversed(range(n)):
+        if is_prime(i):
+            return i
+
+
+def test_get_largest_prime_below():
+    assert get_largest_prime_below(3) == 2
+    assert get_largest_prime_below(4) == 3
+    assert get_largest_prime_below(5) == 3
+    assert get_largest_prime_below(12) == 11
+    assert get_largest_prime_below(17) == 13
+    assert get_largest_prime_below(22) == 19
+    assert get_largest_prime_below(35) == 31
+    assert get_largest_prime_below(40) == 37
+    assert get_largest_prime_below(45) == 43
+    assert get_largest_prime_below(70) == 67
+    assert get_largest_prime_below(1000) == 997
+    
+
 shouldRun = True
 while shouldRun:
     print('1. Determinati numerele prime p1 si p2 astfel incat n = p1 + p2.')
     print("2. Determinati radicalul unui numar, folosind metoda lui Newton.")
+    print("3. Determinati ultimul numar prim mai mic decat un numar dat.")
     print("x. Iesire.")
     optiune = input("Alegeti optiunea: ")
     if optiune == "1":
@@ -100,6 +141,9 @@ while shouldRun:
         n = int(input("Inserati un numar:"))
         steps = int(input("Inserati un numar de pasi:"))
         print("Radicalul numarului ", n, " este ", get_newton_sqrt(n, steps))
+    elif optiune == "3":
+        n = int(input("Inserati un numar: "))
+        print(get_largest_prime_below(n))
     elif optiune == "x":
         shouldRun = False
     else:
