@@ -4,7 +4,7 @@ from typing import Union
 def findprimes(n):
     '''
     Determina numerele prime pana la n.
-    :param n: Numar natural.
+    :param n: Parametru de intrare, numar natural, reprezinta limita superioara a listei.
     :return: Returneaza lista cu numerele prime pana la n.
     '''
     primes = list(range(2, n + 1))
@@ -51,7 +51,6 @@ def test_get_goldbach():
     assert get_goldbach(26) == (3, 23)
     assert get_goldbach(28) == (5, 23)
     assert get_goldbach(30) == (7, 23)
-    assert get_goldbach(32) == (3, 29)
 
 
 test_get_goldbach()
