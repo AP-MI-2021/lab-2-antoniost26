@@ -53,9 +53,6 @@ def test_get_goldbach():
     assert get_goldbach(30) == (7, 23)
 
 
-test_get_goldbach()
-
-
 def get_newton_sqrt(n, steps) -> float:
     '''
     Ex. 4) Execută un număr dat de pași pentru a calcula radicalul unui număr dat folosind metoda lui Newton cu x0=2 și afișează aproximarea obținută.
@@ -83,8 +80,6 @@ def test_get_newton_sqrt():
     assert get_newton_sqrt(37, 8) == 6.08276253029822
     assert get_newton_sqrt(42, 10) == 6.48074069840786
 
-
-test_get_newton_sqrt()
 
 def is_prime(n):
     '''
@@ -125,25 +120,30 @@ def test_get_largest_prime_below():
     assert get_largest_prime_below(70) == 67
     assert get_largest_prime_below(1000) == 997
     
-
-shouldRun = True
-while shouldRun:
-    print('1. Determinati numerele prime p1 si p2 astfel incat n = p1 + p2.')
-    print("2. Determinati radicalul unui numar, folosind metoda lui Newton.")
-    print("3. Determinati ultimul numar prim mai mic decat un numar dat.")
-    print("x. Iesire.")
-    optiune = input("Alegeti optiunea: ")
-    if optiune == "1":
-        n = int(input("Inserati un numar: "))
-        print(get_goldbach(n))
-    elif optiune == "2":
-        n = int(input("Inserati un numar:"))
-        steps = int(input("Inserati un numar de pasi:"))
-        print("Radicalul numarului ", n, " este ", get_newton_sqrt(n, steps))
-    elif optiune == "3":
-        n = int(input("Inserati un numar: "))
-        print(get_largest_prime_below(n))
-    elif optiune == "x":
-        shouldRun = False
-    else:
-        print("Optiune gresita! Reincercati!")
+def main():
+    test_get_newton_sqrt()
+    test_get_goldbach()
+    test_get_largest_prime_below()
+    shouldRun = True
+    while shouldRun:
+        print('1. Determinati numerele prime p1 si p2 astfel incat n = p1 + p2.')
+        print("2. Determinati radicalul unui numar, folosind metoda lui Newton.")
+        print("3. Determinati ultimul numar prim mai mic decat un numar dat.")
+        print("x. Iesire.")
+        optiune = input("Alegeti optiunea: ")
+        if optiune == "1":
+            n = int(input("Inserati un numar: "))
+            print(get_goldbach(n))
+        elif optiune == "2":
+            n = int(input("Inserati un numar:"))
+            steps = int(input("Inserati un numar de pasi:"))
+            print("Radicalul numarului ", n, " este ", get_newton_sqrt(n, steps))
+        elif optiune == "3":
+            n = int(input("Inserati un numar: "))
+            print(get_largest_prime_below(n))
+        elif optiune == "x":
+            shouldRun = False
+        else:
+            print("Optiune gresita! Reincercati!")
+if __name__ == '__main__':
+    main()
